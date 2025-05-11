@@ -6,11 +6,11 @@ tokenizer = T5Tokenizer.from_pretrained("t5-small")
 model = T5ForConditionalGeneration.from_pretrained("t5-small")
 
 # Summarization function with adjustable summary length
-def summarize(text, summary_size="medium"):
+def summarize(text, length="medium"):
     size_limit = {
-        "short": 30,
-        "medium": 60,
-        "detailed": 100
+        "short": 100,
+        "medium": 200,
+        "detailed": 300
     }
 
     # Encode the input text
@@ -19,7 +19,7 @@ def summarize(text, summary_size="medium"):
     # Generate summary
     summary_ids = model.generate(
         inputs,
-        max_length=size_limit[summary_size],
+        max_length=size_limit[length],
         min_length=20,
         length_penalty=2.0,
         num_beams=4,
