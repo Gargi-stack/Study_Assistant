@@ -122,6 +122,14 @@ if page == "Home":
         st.session_state.file = uploaded_file
         st.write("✅ File Uploaded: ", uploaded_file.name)
 
+        # Summary length selection
+        st.markdown("### ✂️ Choose Summary Length")
+        length_option = st.select_slider(
+        "Select the summary length",
+        options=["Short", "Medium", "Long"],
+        value="Medium"
+     )
+
         if st.button("📝 Summarize Text"):
             with st.spinner("Generating summary..."):
                 st_lottie(lottie_transition, height=120, key="load")
@@ -134,7 +142,7 @@ if page == "Home":
             elif uploaded_file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
                 text = extract_text_from_word(uploaded_file)
 
-            summary = summarize(text)
+            summary = summarize(text, length=length_option)
             st.session_state.summary = summary
             st.session_state.history.append((uploaded_file.name, summary))
 
