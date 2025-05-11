@@ -142,7 +142,7 @@ if page == "Home":
             elif uploaded_file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
                 text = extract_text_from_word(uploaded_file)
 
-            summary = summarize(text, length=length_option)
+            summary = summarize(text, length=length_option.lower())
             st.session_state.summary = summary
             st.session_state.history.append((uploaded_file.name, summary))
 
