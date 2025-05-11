@@ -1,0 +1,2 @@
+The AI-Powered Study Assistant is a web application that allows users to easily upload PDF, Word, or text files and generate concise summaries of their content. Built with Streamlit, the app also features text-to-speech capabilities to read the summary aloud, a history of previously summarized files, and smooth animations for an enhanced user experience. This tool is designed to help students, researchers, and anyone needing quick, accurate summaries of lengthy documents.
+
