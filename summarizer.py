@@ -9,8 +9,8 @@ model = T5ForConditionalGeneration.from_pretrained("t5-small")
 def summarize(text, length="medium"):
     size_limit = {
         "short": 100,
-        "medium": 200,
-        "detailed": 300
+        "medium": 300,
+        "long": 500
     }
 
     # Encode the input text
